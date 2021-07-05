@@ -1,0 +1,12 @@
+name: dvc-demo
+channels:
+  - conda-forge
+dependencies:
+  - python==3.8
+  - pip
+  - pip:
+      - boto3
+      - dvc[s3]
+      - pyyaml
+      - pandas
+      - sklearn
