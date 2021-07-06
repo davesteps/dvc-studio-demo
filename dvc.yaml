@@ -31,3 +31,5 @@ stages:
     - ./confmat.csv:
         cache: false
         template: confusion
+        x: actual
+        y: predicted
