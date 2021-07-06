@@ -23,11 +23,14 @@ stages:
       md5: 6d2cb751cde5bdcd41a6c71eb2cc7236
       size: 21627246
     - path: ./src/train.py
-      md5: 3fda6709d0bf9fec6a6398b8cc32b194
-      size: 326
+      md5: d161f428e7c3a1585b9fce22202652b5
+      size: 610
     params:
       params.yaml:
         train:
+          max_depth: 2
+          n_estimators: 100
+          min_samples_split: 2
     outs:
     - path: ./model.pkl
       md5: 552ec7e84d782e049042306cfe0e86ad

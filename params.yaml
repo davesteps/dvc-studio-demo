@@ -1,5 +1,8 @@
 data-prep:
 
 train:
+  max_depth: 2
+  n_estimators: 100
+  min_samples_split: 2
 
 evaluate:
