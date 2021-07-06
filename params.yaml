@@ -1,7 +1,7 @@
 data-prep:
 
 train:
-  max_depth: 10
+  max_depth: 50
   n_estimators: 100
   min_samples_split: 2
 
