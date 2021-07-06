@@ -1,0 +1,15 @@
+schema: '2.0'
+stages:
+  data-prep:
+    cmd: python ./src/data-prep.py --no-exec --no-commit
+    deps:
+    - path: ./data/raw_ais.csv
+      md5: d0707a317c84c8da989514167f58ea4e
+      size: 103539519
+    outs:
+    - path: ./data/test.csv
+      md5: 2c9b6dc1a11d781ecd4e8c73e5509586
+      size: 4927990
+    - path: ./data/train.csv
+      md5: 6d2cb751cde5bdcd41a6c71eb2cc7236
+      size: 21627246

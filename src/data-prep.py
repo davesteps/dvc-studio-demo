@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('data/ais.csv')
+df = pd.read_csv('data/raw_ais.csv')
 
 df = df[['shiptype3', 'lon', 'lat', 'sog', 'cog', 'hdg', 'date']]
 

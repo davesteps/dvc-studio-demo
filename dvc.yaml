@@ -1,0 +1,8 @@
+stages:
+  data-prep:
+    cmd: python ./src/data-prep.py --no-exec --no-commit
+    deps:
+    - ./data/raw_ais.csv
+    outs:
+    - ./data/test.csv
+    - ./data/train.csv
