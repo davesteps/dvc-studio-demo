@@ -1,11 +1,14 @@
 schema: '2.0'
 stages:
   data-prep:
-    cmd: python ./src/data-prep.py --no-exec --no-commit
+    cmd: python ./src/data-prep.py
     deps:
     - path: ./data/raw_ais.csv
       md5: d0707a317c84c8da989514167f58ea4e
       size: 103539519
+    params:
+      params.yaml:
+        data-prep:
     outs:
     - path: ./data/test.csv
       md5: 2c9b6dc1a11d781ecd4e8c73e5509586
@@ -13,3 +16,35 @@ stages:
     - path: ./data/train.csv
       md5: 6d2cb751cde5bdcd41a6c71eb2cc7236
       size: 21627246
+  train:
+    cmd: python ./src/train.py
+    deps:
+    - path: ./data/train.csv
+      md5: 6d2cb751cde5bdcd41a6c71eb2cc7236
+      size: 21627246
+    - path: ./src/train.py
+      md5: 3fda6709d0bf9fec6a6398b8cc32b194
+      size: 326
+    params:
+      params.yaml:
+        train:
+    outs:
+    - path: ./model.pkl
+      md5: 552ec7e84d782e049042306cfe0e86ad
+      size: 42957
+  evaluate:
+    cmd: python ./src/evaluate.py
+    deps:
+    - path: ./model.pkl
+      md5: 552ec7e84d782e049042306cfe0e86ad
+      size: 42957
+    - path: ./src/evaluate.py
+      md5: 9ba5f483d9582af7f3de6da4421a866b
+      size: 537
+    params:
+      params.yaml:
+        evaluate:
+    outs:
+    - path: ./metrics-evaluate.yaml
+      md5: 9b747e2f1c41c93d83a404a24f110265
+      size: 118

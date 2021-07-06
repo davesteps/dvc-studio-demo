@@ -1,8 +1,29 @@
 stages:
   data-prep:
-    cmd: python ./src/data-prep.py --no-exec --no-commit
+    cmd: python ./src/data-prep.py
     deps:
     - ./data/raw_ais.csv
+    params:
+    - data-prep
     outs:
     - ./data/test.csv
     - ./data/train.csv
+  train:
+    cmd: python ./src/train.py
+    deps:
+    - ./data/train.csv
+    - ./src/train.py
+    params:
+    - train
+    outs:
+    - ./model.pkl
+  evaluate:
+    cmd: python ./src/evaluate.py
+    deps:
+    - ./model.pkl
+    - ./src/evaluate.py
+    params:
+    - evaluate
+    metrics:
+    - ./metrics-evaluate.yaml:
+        cache: false
