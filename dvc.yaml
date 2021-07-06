@@ -27,3 +27,6 @@ stages:
     metrics:
     - ./metrics-evaluate.yaml:
         cache: false
+    plots:
+    - ./confmat.csv:
+        cache: false

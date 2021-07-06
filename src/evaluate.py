@@ -2,6 +2,7 @@ import pandas as pd
 import joblib
 from sklearn import metrics
 import yaml
+from sklearn.metrics import precision_recall_curve
 
 test = pd.read_csv('data/test.csv')
 
@@ -20,3 +21,6 @@ metrics = {
 with open(r'./metrics-evaluate.yaml', 'w') as file:
     yaml.dump(metrics, file)
 
+test.head()
+
+pd.DataFrame({'actual':y,'predicted':y_pred}).to_csv('./confmat.csv',index=False)
