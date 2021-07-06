@@ -28,19 +28,19 @@ stages:
     params:
       params.yaml:
         train:
-          max_depth: 50
-          n_estimators: 100
+          max_depth: 10
+          n_estimators: 500
           min_samples_split: 2
     outs:
     - path: ./model.pkl
-      md5: 438eaf17cb7c4a3cc15e5ee9d44cc7e6
-      size: 95376607
+      md5: 3314fa7a14c66444044319e70467d344
+      size: 18794540
   evaluate:
     cmd: python ./src/evaluate.py
     deps:
     - path: ./model.pkl
-      md5: 438eaf17cb7c4a3cc15e5ee9d44cc7e6
-      size: 95376607
+      md5: 3314fa7a14c66444044319e70467d344
+      size: 18794540
     - path: ./src/evaluate.py
       md5: 9ba5f483d9582af7f3de6da4421a866b
       size: 537
@@ -49,5 +49,5 @@ stages:
         evaluate:
     outs:
     - path: ./metrics-evaluate.yaml
-      md5: 04a98d532c6175449a9dfbdbaeee38f9
-      size: 116
+      md5: a6636bb2ce8050838cd32e90602e05f8
+      size: 117
