@@ -21,6 +21,7 @@ metrics = {
 with open(r'./metrics-evaluate.yaml', 'w') as file:
     yaml.dump(metrics, file)
 
-test.head()
+# ves_list = ["Cargo","Tanker","Tug","Passenger","Special Craft","High-Speed Craft"]
 
-pd.DataFrame({'actual':y,'predicted':y_pred}).to_csv('./confmat.csv',index=False)
+pd.DataFrame({'actual':y[:10000],'predicted':y_pred[:10000]}).to_csv('./confmat.csv',
+                                                                     index=False)

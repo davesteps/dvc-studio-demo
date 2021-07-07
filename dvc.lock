@@ -42,15 +42,15 @@ stages:
       md5: 64cbdc9ddf19c79d33c1df3af9306b93
       size: 3607354
     - path: ./src/evaluate.py
-      md5: d22587f767e733f10e90acd31df37ac3
-      size: 683
+      md5: d95eeea07945db0ff345202b093ca44c
+      size: 842
     params:
       params.yaml:
         evaluate:
     outs:
     - path: ./confmat.csv
-      md5: 95d323c2284269585944908e73d2d6e7
-      size: 1390000
+      md5: f561354bbdae2023e188fa1ada72f1a6
+      size: 151962
     - path: ./metrics-evaluate.yaml
       md5: 4ab8438547412a867bc11d74a1eecd30
       size: 117
